@@ -1,0 +1,76 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APIRest.MainPage"
+             Title="Gestión de Usuarios">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="#1E1E1E">
+
+            <Label Text="Usuarios" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
+
+            <Button Text="Consultar Todos"
+                    Clicked="OnConsultarTodos"
+                    BackgroundColor="#007ACC"
+                    TextColor="White"/>
+
+            <Entry x:Name="BuscarIdEntry"
+                   Placeholder="ID para buscar"
+                   TextColor="White"
+                   BackgroundColor="Gray"/>
+            <Button Text="Buscar por ID"
+                    Clicked="OnBuscarPorId"
+                    BackgroundColor="#007ACC"
+                    TextColor="White"/>
+
+            <Label Text="Crear Usuario" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="CrearNombreEntry" Placeholder="Nombre" TextColor="White" BackgroundColor="Gray"/>
+            <Entry x:Name="CrearApellidosEntry" Placeholder="Apellidos" TextColor="White" BackgroundColor="Gray"/>
+            <Entry x:Name="CrearEmailEntry" Placeholder="Email" TextColor="White" BackgroundColor="Gray"/>
+            <Entry x:Name="CrearEdadEntry" Placeholder="Edad" Keyboard="Numeric" TextColor="White" BackgroundColor="Gray"/>
+            <Button Text="Crear"
+                    Clicked="OnCrear"
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+
+            <Label Text="Actualizar Usuario" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="ActualizarIdEntry" Placeholder="ID" TextColor="White" BackgroundColor="Gray"/>
+            <Entry x:Name="ActualizarNombreEntry" Placeholder="Nuevo nombre" TextColor="White" BackgroundColor="Gray"/>
+            <Entry x:Name="ActualizarApellidosEntry" Placeholder="Nuevo apellidos" TextColor="White" BackgroundColor="Gray"/>
+            <Entry x:Name="ActualizarEmailEntry" Placeholder="Nuevo email" TextColor="White" BackgroundColor="Gray"/>
+            <Entry x:Name="ActualizarEdadEntry" Placeholder="Nueva edad" Keyboard="Numeric" TextColor="White" BackgroundColor="Gray"/>
+            <Button Text="Actualizar"
+                    Clicked="OnActualizar"
+                    BackgroundColor="Orange"
+                    TextColor="Black"/>
+
+            <Label Text="Eliminar Usuario" TextColor="White" FontAttributes="Bold"/>
+            <Entry x:Name="EliminarIdEntry" Placeholder="ID" TextColor="White" BackgroundColor="Gray"/>
+            <Button Text="Eliminar"
+                    Clicked="OnEliminar"
+                    BackgroundColor="Red"
+                    TextColor="White"/>
+
+            <ActivityIndicator x:Name="Cargando"
+                               IsRunning="False"
+                               IsVisible="False"
+                               Color="White"/>
+
+            <CollectionView x:Name="ListaUsuarios">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#2D2D30" Padding="10" Margin="5">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Nombre}" TextColor="White" FontAttributes="Bold"/>
+                                <Label Text="{Binding Apellidos}" TextColor="White"/>
+                                <Label Text="{Binding EMail}" TextColor="White"/>
+                                <Label Text="{Binding Edad}" TextColor="White"/>
+                                <Label Text="{Binding Id}" TextColor="Gray" FontSize="10"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
