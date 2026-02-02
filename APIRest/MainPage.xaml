@@ -23,14 +23,44 @@
                     TextColor="White"/>
 
             <Label Text="Crear Usuario" TextColor="White" FontAttributes="Bold"/>
-            <Entry x:Name="CrearNombreEntry" Placeholder="Nombre" TextColor="White" BackgroundColor="Gray"/>
-            <Entry x:Name="CrearApellidosEntry" Placeholder="Apellidos" TextColor="White" BackgroundColor="Gray"/>
-            <Entry x:Name="CrearEmailEntry" Placeholder="Email" TextColor="White" BackgroundColor="Gray"/>
-            <Entry x:Name="CrearEdadEntry" Placeholder="Edad" Keyboard="Numeric" TextColor="White" BackgroundColor="Gray"/>
+
+            <!-- Nombre + Apellidos -->
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                <Entry Grid.Column="0"
+           x:Name="CrearNombreEntry"
+           Placeholder="Nombre"
+           BackgroundColor="Gray"
+           TextColor="White"/>
+
+                <Entry Grid.Column="1"
+           x:Name="CrearApellidosEntry"
+           Placeholder="Apellidos"
+           BackgroundColor="Gray"
+           TextColor="White"/>
+            </Grid>
+
+            <!-- Email + Edad -->
+            <Grid ColumnDefinitions="3*, *" ColumnSpacing="10">
+                <Entry Grid.Column="0"
+           x:Name="CrearEmailEntry"
+           Placeholder="Email"
+           BackgroundColor="Gray"
+           TextColor="White"/>
+
+                <Entry Grid.Column="1"
+           x:Name="CrearEdadEntry"
+           Placeholder="Edad"
+           Keyboard="Numeric"
+           BackgroundColor="Gray"
+           TextColor="White"/>
+            </Grid>
+
             <Button Text="Crear"
-                    Clicked="OnCrear"
-                    BackgroundColor="Green"
-                    TextColor="White"/>
+        Clicked="OnCrear"
+        BackgroundColor="Green"
+        TextColor="White"/>
+
+
 
             <Label Text="Actualizar Usuario" TextColor="White" FontAttributes="Bold"/>
             <Entry x:Name="ActualizarIdEntry" Placeholder="ID" TextColor="White" BackgroundColor="Gray"/>
