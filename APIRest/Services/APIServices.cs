@@ -13,7 +13,11 @@ namespace APIRest.Services
             try
             {
                 var lista = await _cliente.GetFromJsonAsync<List<Usuarios>>(UrlApi);
-                return lista ?? new List<Usuarios>();
+
+                if (lista == null)
+                    return new List<Usuarios>();
+
+                return lista;
             }
             catch
             {
@@ -25,7 +29,12 @@ namespace APIRest.Services
         {
             try
             {
-                return await _cliente.GetFromJsonAsync<Usuarios>($"{UrlApi}/{id}");
+                var usuario = await _cliente.GetFromJsonAsync<Usuarios>($"{UrlApi}/{id}");
+
+                if (usuario == null)
+                    return null;
+
+                return usuario;
             }
             catch
             {
